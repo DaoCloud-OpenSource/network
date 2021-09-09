@@ -5,11 +5,4 @@ SDN (Software Defined Network)即软件定义网络，是一种网络设计理�
 
 SDN 是一个很宽泛的概念，分为很多的技术流派，主要分为：网络设备厂商派系,虚拟化派系,和 OpenFlow 派系。
 
-
-
-## 网络虚拟化
-
-
-
-
-
+Kubernetes 基于的网络就是一种虚拟化派系的 SDN。
