@@ -11,9 +11,28 @@ netfilter 工作在二层和三层，上接四层 socket。netfilter 提供一�
 ![](Pics/2021-08-17-15-45-23.png)
 
 
-iptables 有一系列表 (tables)，每个表有一些链 (chains)，每个链有一些规则 (rules)。
+iptables 有一系列表 (tables)，每个表有一些链 (chains)，每个链有一些规则 (rules)。链其实就是内核中的 hook point。每个经过 hook point 的报文，都要将这条链上的所有规则匹配一遍，如果有符合条件的规则，则执行规则对应的动作。动作称为 target。没有被任何规则匹配到时，会默认放行报文。
 
-每个经过 hook point 的报文，都要将这条链上的所有规则匹配一遍，如果有符合条件的规则，则执行规则对应的动作。动作称为 target。没有被任何规则匹配到时，会默认放行报文。
+实际上讨论 iptables 按照 链 - 表 - 规则 的顺序，这与上述顺序不一致。iptables 引入表，一方面可以方便管理规则，另一方面可以确保规则按指定顺序执行。
+
+iptables 有一些预设的表和预设的链。在一个链（hook point）上，表执行顺序为：raw, mangle, nat, filter。
+
+预设的链：
+- PREROUTING: 在路由前修改数据包，例如 DNAT
+- INPUT: 要发往主机的数据包
+- FORWARD: 不是发往主机的数据包，也不是主机产生的数据包，只是从主机经过
+- OUTPUT: 从主机产生的数据包
+- POSTROUTING: 路由之后，数据包要离开主机，进行 SNAT
+
+预设的表：
+- raw: 是否启用连接追踪
+- mangle: 修改数据包的头信息
+- nat: 地址转换
+- filter: 起到过滤功能
+
+![](Pics/2021-09-14-11-43-53.png)
+
+================================================
 
 conntrack
 
@@ -24,19 +43,9 @@ nat 只有第一次使用
 
 ![](Pics/2021-08-17-14-13-18.png)
 
-- iptables 有一些事先定义的 table，每个 table 包含事先定义的 chains
 
-table | contains chains | command to show that
-------|-----------------|---------------------
-filter | INPUT, FORWARD, OUTPUT | iptables [-t filter] -L
-nat | PREROUTING, (INPUT)10), OUTPUT, POSTROUTING | iptables -t nat -L
-mangle | PREROUTING, INPUT, FORWARD, OUTPUT, POSTROUTING | iptables -t mangle -L
-raw | PREROUTING, OUTPUT | iptables -t raw -L
 
-- filter表：负责过滤功能，防火墙
-- nat表：network address translation，网络地址转换功能
-- mangle表：拆解报文，做出修改，并重新封装的功能
-- raw表：关闭nat表上启用的连接追踪机制
+
 - 可以在某个表里面创建自定义链，将针对某个应用程序所设置的规则放置在这个自定义链中，但是自定义链接不能直接使用，只能被某个默认的链当做动作去调用才能起作用
 - Iptables chains registered with IPv4 Netfilter hooks (+conntrack)
 
