@@ -2,7 +2,7 @@
 ## 单机网络
 容器的创建使用到了两个 Linux 内核的特性 namespace 和 cgroup。
 
-- 四种模式
+- Docker 创建容器四种网络模式
   1. `--net=host`
   2. `--net=container:NAME_or_ID`
   3. `--net=none`
@@ -32,12 +32,16 @@ MacVlan 是工作在二层的虚拟网络接口，这个接口连接着物理接
 
 ## 多机网络
 ### Overlay
-Overlay 通常使用 VxLAN[^1] 实现
+Overlay 网络通常使用 VxLAN [^1] 实现，是一个跨越三层的二层方案。每个 VTEP [^2] 连接到物理机器，在不同机器的网桥之间建立起隧道。
 
-由编排器协调 IP 地址和隧道
+由编排器协调 IP 地址和隧道。
 
+### Direct Routing
+Direct Routing 是一个三层方案。每台机器分配一个互相不冲突的子网，通过添加路由规则实现不同主机的容器通信，将每台物理机器作为机器上容器子网的网关。
 
+通常每台机器上运行一个路由守护进程，将子网的路由信息通过 BGP 发送出去。
 
 
 
 [^1]: Virtual Extensible LAN
+[^2]: Virtual Tunnel Endpoint
