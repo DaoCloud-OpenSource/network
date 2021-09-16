@@ -13,6 +13,7 @@
 
 ### 跟随重定向
 - `curl -L URL`
+- 有时候下载链接有重定向 `curl -OL`
 
 ### 设置 UA
 - `curl -A "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" URL`

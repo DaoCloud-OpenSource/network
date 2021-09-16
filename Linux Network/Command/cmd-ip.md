@@ -4,3 +4,7 @@
 - `ip link`: MAC address
 - `ip route list`: display all the IP addresses with their device names that are currently available
 - `ip maddr show ens33` 主机网卡上 MAC 地址，使用 macvlan 主机网卡会有多个 MAC 地址
+- `ip netns` 操作网络命名空间
+  - `ip netns add <ns-name>`
+  - `ip netns exec <ns-name> <command>`
+  - `ip netns help`
