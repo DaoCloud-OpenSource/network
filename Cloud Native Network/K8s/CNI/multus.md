@@ -13,6 +13,7 @@ Multus 以 daemonset 的形式存在于节点上。Multus daemonset 做了以下
 - 在每个节点上创建 `/etc/cni/net.d/multus.d` 目录，包含 Multus 访问 Kubernetes API 的认证信息。
 
 Multus 定义了一个 CRD: NetworkAttachmentDefinition，通过在创建 Pod 时加上相应的注解来增加指定的网卡。在注解中以逗号分隔，可以指定多个额外的网卡。也可以指定多个相同类型的网卡。
+
 ```
 metadata:
   name: samplepod
@@ -26,6 +27,7 @@ metadata:
 ```
 
 - Pod 的 Annotation 里有详细的网络配置信息
+
 ```
 $ kubectl describe pod samplepod
 Annotations:        k8s.v1.cni.cncf.io/networks: macvlan-conf
@@ -55,7 +57,8 @@ Annotations:        k8s.v1.cni.cncf.io/networks: macvlan-conf
   - `git clone https://github.com/k8snetworkplumbingwg/multus-cni.git && cd multus-cni`
   - `cat ./images/multus-daemonset.yml | kubectl apply -f -`
 - 定义附加网卡。 **注意**: config 中 master 字段需要和主机上默认路由的网卡相同
-```
+
+```sh
 $ cat <<EOF | kubectl create -f -
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
@@ -80,9 +83,41 @@ $ kubectl get network-attachment-definitions
 NAME           AGE
 macvlan-conf   15s
 ```
-- 创建 Pod
 
+- 如果 NetworkAttachmentDefinition 没有 spec，multus 会在 `/etc/cni/multus/net.d` 里面找相应的配置文件。更推荐此做法，达到解耦的效果。
+
+```sh
+# Execute following command at Kubernetes master
+$ cat <<EOF | kubectl create -f -
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: macvlan-conf-2
+EOF
 ```
+
+```sh
+# Execute following commands at all Kubernetes nodes (i.e. master and minions)
+$ cat <<EOF > /etc/cni/multus/net.d/macvlan2.conf
+{
+    "cniVersion": "0.4.0",
+    "type": "macvlan",
+    "name": "macvlan-conf-2",
+    "master": "enp0s5",
+    "mode": "bridge",
+    "ipam": {
+      "type": "whereabouts",
+      "range": "10.211.55.0/24",
+      "range_start": "10.211.55.21",
+      "gateway": "10.211.55.1"
+    }
+}
+```
+
+- 创建 Pod
+- 可以指定新增网卡的名称 `k8s.v1.cni.cncf.io/networks: macvlan-conf@<ifname>`
+
+```sh
 $ cat <<EOF | kubectl create -f -
 apiVersion: apps/v1
 kind: Deployment

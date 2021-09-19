@@ -9,7 +9,7 @@ Whereabouts 不会分配网络位全 0 的地址和广播地址。
 
 ### 配置
 
-- Whereabouts 以 daemonset 的形式存在于节点上。定义了两种 CRD `IPPool` 和 `OverlappingRangeIPReservation`。并通过 CronJob 来维护 IP 分配信息。
+- Whereabouts 以 daemonset 的形式存在于节点上。定义了两种 CRD `IPPool` 和 `OverlappingRangeIPReservation`。并通过 CronJob 来维护 IP 分配信息。如果某个节点宕机，也会回收运行在该节点上 Pods 的 IP。
 
 ```shell
 git clone https://github.com/k8snetworkplumbingwg/whereabouts && cd whereabouts
@@ -22,8 +22,7 @@ git clone https://github.com/k8snetworkplumbingwg/whereabouts && cd whereabouts
 ```
 
 - 配置示例。示例中移除了四个 IP 地址： 192.168.2.229, 192.168.2.230, 192.168.2.231, 192.168.2.236。
-111001 01
-192 + 32 = 224
+
 ```
 {
       "cniVersion": "0.4.0",
@@ -42,12 +41,11 @@ git clone https://github.com/k8snetworkplumbingwg/whereabouts && cd whereabouts
 }
 ```
 
-- range 也支持类似 `192.168.2.225-192.168.2.230/28` 形式的配置
+- range 也支持类似 `192.168.2.225-192.168.2.230/28` 形式的配置。
+- 路由、网关、DNS 配置同 static IPAM plugin。
 
 Whereabouts 配置可选参数：
 - range_start: 指定地址范围内第一个进行分配的 IP
 - range_end: 指定地址范围内最后一个进行分配的 IP
 - exclude: 不进行 IP 分配的地址范围
 - 更多配置选项：[Extended configuration](https://github.com/k8snetworkplumbingwg/whereabouts/blob/master/doc/extended-configuration.md)
-
-

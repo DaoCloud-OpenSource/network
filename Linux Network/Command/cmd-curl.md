@@ -15,6 +15,11 @@
 - `curl -L URL`
 - 有时候下载链接有重定向 `curl -OL`
 
+
+### 测试重定向
+- 用 `curl -v` 来代替浏览器，可以避免缓存等带来的问题。
+
+
 ### 设置 UA
 - `curl -A "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" URL`
 
