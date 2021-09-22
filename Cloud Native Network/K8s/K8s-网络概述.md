@@ -1,4 +1,6 @@
 ## K8s 网络概述
+Kubernetes 网络主要涉及两个方面：一个是各个服务的网络间负载均衡，另一个是网络间的通讯。
+
 ### 容器到容器
 - Pod 内部容器共享一个网络命名空间，使用 loopback 通信
 - Pod 使用 pause 容器启动网络命名空间，pause 的 NetworkMode 是 bridge，其它容器都共享 pause 容器的网络
