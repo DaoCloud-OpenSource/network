@@ -32,7 +32,7 @@ MacVlan 是工作在二层的虚拟网络接口，这个接口连接着物理接
 
 ## 多机网络
 ### Overlay
-Overlay 网络通常使用 VxLAN[^1] 实现，是一个跨越三层的二层方案。每个 VTEP[^2] 连接到物理机器，在不同机器的网桥之间建立起隧道。
+Overlay 网络通常使用 VxLAN(Virtual Extensible LAN) 实现，是一个跨越三层的二层方案。每个 VTEP(Virtual Tunnel Endpoint) 连接到物理机器，在不同机器的网桥之间建立起隧道。
 
 由编排工具协调 IP 地址和隧道。
 
@@ -41,7 +41,3 @@ Direct Routing 是一个三层方案。每台机器分配一个互相不冲突�
 
 通常每台机器上运行一个路由守护进程，将子网的路由信息通过 BGP 发送出去。
 
-
-
-[^1]: Virtual Extensible LAN
-[^2]: Virtual Tunnel Endpoint
