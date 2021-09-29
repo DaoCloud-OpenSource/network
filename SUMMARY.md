@@ -22,9 +22,8 @@
   - [macvlan](Cloud%20Native%20Network/K8s/CNI/macvlan.md)
   - [multus](Cloud%20Native%20Network/K8s/CNI/multus.md)
   - [whereabouts](Cloud%20Native%20Network/K8s/CNI/whereabout.md)
-- [双栈]
-  - [Dual Stack](Cloud%20Native%20Network/K8s/dual-stack.md)
-  - [IPv4 & IPv6](Computer%20Network/IPv6.md)
+- Feature Gate
+  - [Dual Stack](Cloud%20Native%20Network/K8s/dual-stack.md) 
 - 网络相关命令
   - [网桥](Linux%20Network/Command/cmd-brctl.md)
   - [curl](Linux%20Network/Command/cmd-curl.md)
@@ -46,3 +45,4 @@
   - [数据链路层概述](Computer%20Network/computer-network-data-link.md)
   - [VLAN](Computer%20Network/VLAN.md)
   - [网络层概述](Computer%20Network/computer-network-network.md)
+  - [IPv4 & IPv6](Computer%20Network/IPv6.md)
