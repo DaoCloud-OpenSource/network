@@ -1,5 +1,5 @@
 ## Dual Stack
-> [IPv4 IPv6](../../Computer%20Network/IPv4-IPv6.md)
+> [IPv4 IPv6](../../Computer%20Network/Protocol/network/IPv4-IPv6.md)
 
 ### Goals
 - 支持 Pod 之间的 IPv4 或 IPv6 通信
