@@ -51,9 +51,7 @@ Options: 可选信息。可变部分增强了 IP 数据报的功能，但也增�
 
 
 ### IPv6 数据报格式
-
-IPv6 数据报由首部和负载组成
-In order to increase performance, and since current link layer technology and transport layer protocols are assumed to provide sufficient error detection,[9] the header has no checksum to protect it.
+IPv6 数据报由首部和负载组成。
 
 ```
  0                   1                   2                   3
