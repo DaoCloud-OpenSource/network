@@ -20,7 +20,7 @@
     - [CNI Plugins Example](Cloud%20Native%20Network/K8s/CNI/cni-example.md)
     - [macvlan](Cloud%20Native%20Network/K8s/CNI/macvlan.md)
     - [multus](Cloud%20Native%20Network/K8s/CNI/multus.md)
-    - [whereabouts](Cloud%20Native%20Network/K8s/CNI/whereabout.md)
+    - [whereabouts](Cloud%20Native%20Network/K8s/CNI/whereabouts.md)
 - Feature Gate
   - [Dual Stack](Cloud%20Native%20Network/K8s/dual-stack.md) 
 - Linux 网络
@@ -41,8 +41,14 @@
     - [telnet](Linux%20Network/Command/cmd-telnet.md)
     - [traceroute](Linux%20Network/Command/cmd-traceroute.md)
 - 计算机网络
-  - [物理层概述](Computer%20Network/computer-network-physical.md)
-  - [数据链路层概述](Computer%20Network/computer-network-data-link.md)
-  - [VLAN](Computer%20Network/VLAN.md)
-  - [网络层概述](Computer%20Network/computer-network-network.md)
-  - [IPv4 & IPv6](Computer%20Network/IPv6.md)
+  - 物理层
+    - [物理层概述](Computer%20Network/computer-network-physical.md)
+  - 数据链路层
+    - [数据链路层设备](Computer%20Network/computer-network-data-link.md)
+    - [VLAN](Computer%20Network/VLAN.md)
+  - 网络层
+    - [网络层概述](Computer%20Network/computer-network-network.md)
+    - [IP](Computer%20Network/Protocol/network/IP.md)
+    - [ICMP](Computer%20Network/Protocol/network/ICMP.md)
+    - [IPv6](Computer%20Network/Protocol/network/IPv6.md)
+    - [NDP](Computer%20Network/Protocol/network/NDP.md)
