@@ -28,19 +28,24 @@
 
 
    在kubernetes中，双栈feature GA 特性是在1.15成为Alpha(默认关闭，可使用--feature-gates=IPv6DualStack=true开启).
-   在1.20，该特性由Alpha变为Beta,意味着该特性已经稳定，默认开启，但可手动关闭.
-![](CNI/Pics/dualstackGA.png)
+
+   在1.20，该特性由Alpha变为Beta,意味着该特性已经稳定，默认开启，但可手动关闭. 
+   [详情](https://kubernetes.io/zh/docs/reference/command-line-tools-reference/feature-gates/)
+
+  ![](CNI/Pics/dualstackGA.png)
    
    - 如果你的kubernetes版本 < 1.15，则无法使用双栈特性。
 
    - 如果你的kubernetes版本在[1.15,1.20]之间,则需要通过--feature-gates=IPv6DualStack=true 开启。
 
    - 如果你的kubernetes版本 > 1.20, 无需额外操作，默认开启。
-
-
+   
+   
 2. ### **DualStack双栈环境 搭建**
 
-a. **宿主机配置IPv6，以centos为例(每个节点都需要操作)**：
+#### **a.宿主机配置IPv6，以centos为例(每个节点都需要操作)**：
+
+
 
 
     
