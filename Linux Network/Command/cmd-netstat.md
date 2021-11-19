@@ -1,5 +1,7 @@
 ### netstat
-- `netstat -tulnp`
+- `netstat -tulnp` 查看端口情况
+- `netstat -atn |grep 192.168.205.11` 查看是否有到 192.168.205.11 的连接
+
 - `-t`: display only tcp connections
 - `-n`: show numerical addresses
 - `-u`: display only udp connections
