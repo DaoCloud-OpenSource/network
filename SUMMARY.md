@@ -17,7 +17,7 @@
 - Feature Gate
   - [Dual Stack](Cloud%20Native%20Network/K8s/dual-stack.md) 
 - Service Mesh
-  - [服务网格简介](Cloud%20Native%20Network/Service%20Mesh/service-mesh-%20introduction.md)
+  - [服务网格简介](Cloud%20Native%20Network/Service%20Mesh/service-mesh-introduction.md)
 - Linux 网络
   - [Linux 网络概述](Linux%20Network/linux-network-introduction.md)
   - [iptables](Linux%20Network/iptables.md)
@@ -41,7 +41,7 @@
   - 物理层
     - [物理层概述](Computer%20Network/computer-network-physical.md)
   - 数据链路层
-    - [数据链路层设备](Computer%20Network/computer-network-data-link.md)
+    - [数据链路层设备](Computer%20Network/computer-network-data-link-device.md)
     - [VLAN](Computer%20Network/VLAN.md)
   - 网络层
     - [网络层概述](Computer%20Network/computer-network-network.md)
