@@ -73,7 +73,7 @@ IPv6 LLA 地址段为 fe80::/10。启动 IPv6 时，网络接口会自动配置�
 
 IPv6 LLA 前缀为 1111111010，其余 global routing prefix 为 0，对网络接口 MAC 地址进行转换获得接口 ID。
 
-转换方法为将 MAC 地址中 U/L 位设置为 1，并在 OUI 后面插入固定数 0xfffe
+MAC-to-EUI64 转换法是将 MAC 地址中 U/L 位设置为 1，并在 OUI 后面插入固定数 0xfffe
 
 ```
         MAC 00:16:3e:0a:c5:d3
