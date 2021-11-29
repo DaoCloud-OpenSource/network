@@ -1,11 +1,10 @@
 ## Dual Stack
-> [IPv6](../../Computer%20Network/Protocol/network/IPv6.md)
-
+> [IPv6](../../../Computer%20Network/Network%20Layer/IPv6.md)
 ### Goals
 - 支持 Pod 之间的 IPv4 或 IPv6 通信
 - 支持 Pod 使用 IPv4 或者 IPv6 访问集群外部
 - Ingress Controller 支持 IPv4 或 IPv6 的外部访问
-- 为 ClusterIP，NodePort，ExternalIP 类型的 Service 提供双栈支持
+- 为 ClusterIP，NodePort，ExternalIP 类型的 Service 提供双栈支持 
 
 ### Non-Goals
 - IPv4 与 IPv6 之间的通信不在考虑范围之内（Ingress Controller 或许可以将流量负载均衡至同一个 EndPoint 的 IPv4 或 IPv6 地址）
@@ -116,7 +115,7 @@ nodeRegistration:
 
 在 1.20，该特性由 Alpha 变为 Beta，意味着该特性已经稳定，默认开启，但可手动关闭， 可见 [详情](https://kubernetes.io/zh/docs/reference/command-line-tools-reference/feature-gates/) 。
 
-![](Pics/dualstackGA.png)
+![](../../../Pics/dualstackGA.png)
    
 - 如果你的kubernetes版本 < 1.15，则无法使用双栈特性。
 - 如果你的kubernetes版本在 [1.15,1.20] 之间,则需要通过 --feature-gates=IPv6DualStack=true 开启。
