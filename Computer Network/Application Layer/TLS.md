@@ -100,9 +100,9 @@ TCP 连接建立后，客户端首先发送 Client Hello，以明文传输 TLS �
 
 有了对称密钥，客户端发送 Cipher Spec Exchange 消息，然后发送一个 Encrypted Handshake Message，将已经商定好的参数等，采用协商密钥进行加密，发送给服务端用于数据与握手验证。同样，服务器也可以发送 Change Cipher Exchange 消息，并且也发送 Encrypted Handshake Message 的消息。当双方握手结束之后，就可以通过对称密钥进行加密传输了。
 
-![](Pics/2021-11-19-13-22-02.png)
+![](../Pics/2021-11-19-13-22-02.png)
 
-![](Pics/2021-11-19-13-22-11.png)
+![](../Pics/2021-11-19-13-22-11.png)
 
 
 ### 抓包工具原理

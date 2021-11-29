@@ -193,7 +193,7 @@ spec:
 
 
 
-Example: [Manifest File](./ingress.yaml)
+Example: 
 
 ```yaml
 ---
