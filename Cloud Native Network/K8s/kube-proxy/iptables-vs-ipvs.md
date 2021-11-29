@@ -40,7 +40,9 @@ enum nf_inet_hooks {
 ```
 
 netfilter框架的workflow:
+
 ![](../../../Pics/iptables-workflow.jpg)
+
 数据包首先到达PREROUTING链，根据表的优先级，按照优先级依次执行raw、mangle、nat上的规则。到达路由判决点，判断数据包的目的地是本机进程。如果目标是本机进程，那么流量包将会被送往INPUT链，执行其链上的
 
 处理流程如下：
